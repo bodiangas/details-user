@@ -1,0 +1,35 @@
+.usersTable {
+    height: auto; //A remplacer par auto;
+    width: 90%;
+    background: rgb(46, 42, 42); // A enlever et remplacer par des vraies données
+    position: absolute;
+    margin-top: -50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.userCircle {
+  background: black;
+  width: 40px; height: 40px; 
+  border-radius: 20px;
+  position:relative;display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+  color : white;
+}
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
