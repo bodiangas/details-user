@@ -82,6 +82,7 @@ export class DetailsUtilisateurComponent implements OnInit {
       init+=nom[i][0];
       i++
     }return (init.toUpperCase)
+    
   }
 
   openDialog(user : UserData): void {
