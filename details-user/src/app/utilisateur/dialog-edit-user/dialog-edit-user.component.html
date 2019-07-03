@@ -1,0 +1,50 @@
+<div mat-dialog-title class="header">
+  <h3>{{data.user.name}}</h3>
+  <div class="action">
+    <button mat-button (click)="onNoClick()"><mat-icon color="warn" (click)="deleteUser(user.id)">delete</mat-icon></button>
+    <button mat-raised-button [mat-dialog-close]="data.user.name" cdkFocusInitial>Enregistrer</button>
+  </div>
+</div>
+
+<div mat-dialog-content class="formulaire">
+  <div class="column1">
+    <mat-form-field>
+      <input matInput [(ngModel)]="data.user.name" placeholder="Nom">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput  placeholder="Appartenance">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Technicien Dalkia">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Adresse Mail Dalkia">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Profil Support">
+    </mat-form-field>
+  </div>
+  <div class="column2">
+
+    <mat-form-field>
+      <input matInput placeholder="Prenom">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Matricule">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Identification AD">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Profil D@atech">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Profil applicatif">
+    </mat-form-field>
+
+  </div>
+</div>
