@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { UserData } from '../details-utilisateur/details-utilisateur.component';
 
 @Component({
   selector: 'app-page-admin',
@@ -7,6 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageAdminComponent implements OnInit {
   active: boolean = true;
+  dataSource: MatTableDataSource<UserData>;
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
   
   constructor() { }
 

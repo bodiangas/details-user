@@ -5,6 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { filter } from 'minimatch';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { trigger, state, transition, style, animate } from '@angular/animations';
 
 export interface UserData {
   id: string;
@@ -12,6 +13,8 @@ export interface UserData {
   progress: string;
   color: string;
 }
+ 
+
 
 /** Constants used to fill up our data base. */
 const COLORS: string[] = [
@@ -26,10 +29,19 @@ const NAMES: string[] = [
 @Component({
   selector: 'app-details-utilisateur',
   templateUrl: './details-utilisateur.component.html',
-  styleUrls: ['./details-utilisateur.component.scss']
+  styleUrls: ['./details-utilisateur.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
+
 export class DetailsUtilisateurComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color', 'actionEdit',"actionDelete"];
+  expandedElement: UserData | null;
+  displayedColumns: string[] = ['id', 'name', 'progress', 'color', 'actionEdit'];
   dataSource: MatTableDataSource<UserData>;
   myUsers: UserData[]= [];
   id : string;
@@ -75,13 +87,8 @@ export class DetailsUtilisateurComponent implements OnInit {
     }
 
   getInitialUser (name : string){
-    var nom = name.split("");
-    var init="";
-    var i;
-    while(i<nom.length){
-      init+=nom[i][0];
-      i++
-    }return (init.toUpperCase)
+    let initial = name.charAt(0)
+    return initial;
     
   }
 
@@ -110,6 +117,8 @@ function createNewUser(id: number): UserData {
     progress: Math.round(Math.random() * 100).toString(),
     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
   };
+
+  
 
  
 

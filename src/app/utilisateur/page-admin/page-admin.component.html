@@ -2,22 +2,31 @@
 <!-- <div class="toolbar"> My app </div> -->
 <div class="bodyGestion">
   <div class="sidenav">
-    <a routerLink="." (click)="switchActive(true)" [ngClass]="active? 'active':''"><mat-icon>perm_identity</mat-icon></a>
-    <a routerLink="." (click)="switchActive(false)" [ngClass]="!active? 'active':''"><mat-icon>settings</mat-icon></a>
+    <a routerLink="." (click)="switchActive(true)" [ngClass]="active? 'active':''">
+      <mat-icon>perm_identity</mat-icon>
+    </a>
+    <a routerLink="." (click)="switchActive(false)" [ngClass]="!active? 'active':''">
+      <mat-icon>settings</mat-icon>
+    </a>
   </div>
   <div class="content">
     <div class="banner">
       <h1>Gestion des utilisateurs</h1>
-      <app-search></app-search>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtre">
+      </mat-form-field>
+
+
+      <!--app-search></app-search-->
     </div>
     <div class="usersTableContainer">
       <app-details-utilisateur>
-        </app-details-utilisateur>
-        <div class="callToActionContainer">
-          <button mat-fab color="warn" style="color:whitesmoke;">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
+      </app-details-utilisateur>
+      <div class="callToActionContainer">
+        <button mat-fab color="warn" style="color:whitesmoke;">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 </div>
